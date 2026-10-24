@@ -81,22 +81,22 @@ All inputs are in [`scripts/VehicleData.m`](scripts/VehicleData.m), each with it
 | 5 | Acceleration in each gear on a flat road, with the grip limit |
 | 6 | 0–100 km/h, speed against time with the gear changes |
 
-### Figure 1 – Aerodynamic drag
+### Figure 1: Aerodynamic drag
 ![Aerodynamic drag](figures/aerodynamic_drag.png)
 
-### Figure 2 – Rolling resistance
+### Figure 2: Rolling resistance
 ![Rolling resistance](figures/rolling_resistance.png)
 
-### Figure 3 – Grade resistance
+### Figure 3: Grade resistance
 ![Grade resistance](figures/grade_resistance.png)
 
-### Figure 4 – Tractive force
+### Figure 4: Tractive force
 ![Tractive force](figures/tractive_force.png)
 
-### Figure 5 – Acceleration
+### Figure 5: Acceleration
 ![Acceleration](figures/acceleration.png)
 
-### Figure 6 – 0–100 km/h
+### Figure 6: 0 to 100 km/h
 ![0-100 km/h](figures/zero_to_100.png)
 
 ---
