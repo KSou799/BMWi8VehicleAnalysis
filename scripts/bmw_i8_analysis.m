@@ -5,7 +5,7 @@
 % DESCRIPTION:
 % Longitudinal vehicle dynamics of the BMW i8 Coupe: driving resistances,
 % tractive force in each gear, acceleration in each gear, climbing ability,
-% top speed and a 0-100 km/h run compared with BMW's published time.
+% top speed and a 0 to 100 km/h run compared with BMW's published time.
 %
 % ANALYSIS COMPONENTS:
 % 1. Aerodynamic drag
@@ -24,7 +24,7 @@
 %    - Acceleration in each gear on a flat road, with the rotating mass
 %      factor, limited by tyre grip
 %    - Top speed the drivetrain could reach
-% 6. 0-100 km/h
+% 6. 0 to 100 km/h
 %    - Speed against time with gear changes, compared with BMW's 4.4 s
 %
 % MODEL ASSUMPTIONS (more in the README):
@@ -353,8 +353,8 @@ else
 end
 fprintf('    The car is electronically limited to %d km/h\n\n', v_limit);
 
-%% 6. 0-100 KM/H
-fprintf('Running 0-100 km/h simulation...\n');
+%% 6. 0 TO 100 KM/H
+fprintf('Running 0 to 100 km/h simulation...\n');
 
 dv = 0.1; % Speed step [km/h]
 v_run = 0:dv:100; % Speeds of the run [km/h]
@@ -379,7 +379,7 @@ t_run = [0 cumsum(dt + shifts*t_shift)];
 n_shifts = sum(shifts);
 shift_speeds = v_run([false shifts]);
 
-fig6 = figure('Name','6. 0-100 km/h','NumberTitle','off');
+fig6 = figure('Name','6. 0 to 100 km/h','NumberTitle','off');
 hold on
 plot(t_run, v_run, 'LineWidth', 2)
 plot([t_0_100_bmw t_0_100_bmw], [0 100], '--k', 'LineWidth', 1)
@@ -389,15 +389,15 @@ for k = 1:n_shifts
   plot(t_run(ks), v_run(ks), 'ok', 'MarkerFaceColor', 'k')
   text(t_run(ks), v_run(ks), sprintf('  %d to %d', gear_run(ks-1), gear_run(ks)))
 end
-title(sprintf('0-100 km/h in %.1f s (model)', t_run(end)),'fontweight','bold','fontsize',18)
+title(sprintf('0 to 100 km/h in %.1f s (model)', t_run(end)),'fontweight','bold','fontsize',18)
 xlabel('Time [s]','fontweight','bold','fontsize',14)
 ylabel('Velocity [km/h]','fontweight','bold','fontsize',14)
 grid on
 xlim([0 ceil(max(t_run(end), t_0_100_bmw)) + 0.5])
 ylim([0 110])
 
-fprintf('  ✓ 0-100 km/h simulation complete\n');
-fprintf('    0-100 km/h: %.2f s with %d gear changes of %.1f s (%.2f s without the shift time)\n', ...
+fprintf('  ✓ 0 to 100 km/h simulation complete\n');
+fprintf('    0 to 100 km/h: %.2f s with %d gear changes of %.1f s (%.2f s without the shift time)\n', ...
   t_run(end), n_shifts, t_shift, t_ideal(end));
 fprintf('    Gear changes at: %s km/h\n', num2str(round(shift_speeds)));
 fprintf('    BMW published: %.1f s\n\n', t_0_100_bmw);
@@ -423,4 +423,4 @@ fprintf('  2. Rolling Resistance Analysis\n');
 fprintf('  3. Grade Resistance Analysis\n');
 fprintf('  4. Tractive Force Graph\n');
 fprintf('  5. Acceleration Performance\n');
-fprintf('  6. 0-100 km/h\n\n');
+fprintf('  6. 0 to 100 km/h\n\n');
