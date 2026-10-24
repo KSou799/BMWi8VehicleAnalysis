@@ -1,6 +1,6 @@
 # BMW i8 Vehicle Performance Analysis (GNU Octave / MATLAB)
 
-Longitudinal vehicle dynamics of the BMW i8 Coupé: driving resistances, tractive force and acceleration in each of the six gears, climbing ability, top speed, and a 0–100 km/h run checked against BMW's published time.
+Longitudinal vehicle dynamics of the BMW i8 Coupé: driving resistances, tractive force and acceleration in each of the six gears, climbing ability, top speed, and a 0 to 100 km/h run checked against BMW's published time.
 
 ![Tractive force graph](figures/tractive_force.png)
 
@@ -10,7 +10,7 @@ Longitudinal vehicle dynamics of the BMW i8 Coupé: driving resistances, tractiv
 
 | Result | Model | BMW |
 |--------|-------|-----|
-| 0–100 km/h | 4.6 s with two gear changes of 0.2 s, 4.2 s with instant gear changes | 4.4 s |
+| 0 to 100 km/h | 4.6 s with two gear changes of 0.2 s, 4.2 s with instant gear changes | 4.4 s |
 | Gear changes | 1 to 2 at 46 km/h, 2 to 3 at 84 km/h | |
 | Highest acceleration | 9.7 m/s² in 1st gear, at the grip limit | |
 | Top speed | Above 280 km/h, the end of the tyre data (6th gear still accelerates at 0.53 m/s² there) | 250 km/h, electronically limited |
@@ -55,7 +55,7 @@ All inputs are in [`scripts/VehicleData.m`](scripts/VehicleData.m), each with it
 - **Acceleration:** `a = (Fx − FR) / (φ · m)` with the rotating mass factor `φ = 1.04 + 0.0025 · (i_g · i_f)²`, capped at the grip limit `(μ · G − FR) / m`. The mass factor is left out of the grip limit because the rotating engine and gearbox parts sit before the tyres.
 - **Steepest gradient:** for each gear, the steepest gradient where the force at the wheels, the smaller of `Fx` and `μ · G · cos α`, still covers drag, rolling and grade resistance at some speed.
 - **Top speed:** the speed where the acceleration in the best gear falls to zero, searched only inside the tyre data (up to 280 km/h).
-- **0–100 km/h:** at every speed the car uses the gear with the most acceleration. Time is `∫ dv / a`, plus 0.2 s with no acceleration for each gear change. Below 7 km/h, the speed of 1st gear at the lowest engine speed in the data, the torque converter slips and the acceleration at 7 km/h is used.
+- **0 to 100 km/h:** at every speed the car uses the gear with the most acceleration. Time is `∫ dv / a`, plus 0.2 s with no acceleration for each gear change. Below 7 km/h, the speed of 1st gear at the lowest engine speed in the data, the torque converter slips and the acceleration at 7 km/h is used.
 
 ---
 
@@ -79,7 +79,7 @@ All inputs are in [`scripts/VehicleData.m`](scripts/VehicleData.m), each with it
 | 3 | Power needed on a gradient, 3D surface of gradient and speed |
 | 4 | Tractive force in each gear against total resistance on 0 to 100% gradients, with engine speed, the CVT curve and the grip limit |
 | 5 | Acceleration in each gear on a flat road, with the grip limit |
-| 6 | 0–100 km/h, speed against time with the gear changes |
+| 6 | 0 to 100 km/h, speed against time with the gear changes |
 
 ### Figure 1: Aerodynamic drag
 ![Aerodynamic drag](figures/aerodynamic_drag.png)
@@ -134,7 +134,7 @@ run('scripts/bmw_i8_analysis.m')
 
 ## Changes
 
-- **October 2026:** added `VehicleData.m` to the repository with a source for every value and updated mass, axle loads, frontal area, gear ratios and final drive to BMW's published figures. Added the grip limit, the steepest gradient per gear, the top speed check and the 0–100 km/h run. Resistance is no longer extrapolated past the tyre data. Figures are now saved by the script.
+- **October 2026:** added `VehicleData.m` to the repository with a source for every value and updated mass, axle loads, frontal area, gear ratios and final drive to BMW's published figures. Added the grip limit, the steepest gradient per gear, the top speed check and the 0 to 100 km/h run. Resistance is no longer extrapolated past the tyre data. Figures are now saved by the script.
 - **January 2026:** first version.
 
 [MIT license](LICENSE).
