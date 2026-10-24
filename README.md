@@ -121,6 +121,7 @@ run('scripts/bmw_i8_analysis.m')
 | `scripts/bmw_i8_analysis.m` | The analysis, figures and printed results |
 | `scripts/VehicleData.m` | All vehicle data, with a source for each value |
 | `figures/` | The six figures as produced by the script |
+| `LICENSE` | MIT licence |
 
 ---
 
@@ -135,3 +136,5 @@ run('scripts/bmw_i8_analysis.m')
 
 - **October 2026:** added `VehicleData.m` to the repository with a source for every value and updated mass, axle loads, frontal area, gear ratios and final drive to BMW's published figures. Added the grip limit, the steepest gradient per gear, the top speed check and the 0–100 km/h run. Resistance is no longer extrapolated past the tyre data. Figures are now saved by the script.
 - **January 2026:** first version.
+
+[MIT license](LICENSE).
