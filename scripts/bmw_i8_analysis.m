@@ -43,7 +43,7 @@
 % The figures open in windows and are saved as PNG files in ../figures.
 %
 % AUTHOR: Sou Komiya
-% DATE: January 2026, updated October 2026
+% DATE: August 2025 (course project), updated October 2026
 % =========================================================================
 
 clear all
